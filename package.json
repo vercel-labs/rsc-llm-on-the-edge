@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "ai": "file:/Users/maxleiter/Documents/ai-sdk/packages/core/ai-2.1.9.tgz",
+    "next": "13.4.8-canary.6",
+    "openai-edge": "^1.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@types/react": "18.0.33",
+    "eslint": "8.38.0",
+    "eslint-config-next": "13.3.0",
+    "typescript": "^5.0.4"
+  }
+}
