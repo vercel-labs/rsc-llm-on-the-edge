@@ -52,15 +52,15 @@ export default async function Page() {
         </pre>
       </main>
       <div className="meta">
-          <div className="info">
-            <span>Proxy Region</span>
-            <Region region={proxyRegion} />
-          </div>
-          <div className="info">
-            <span>Compute Region</span>
-            <Region region={computeRegion} />
-          </div>
+        <div className="info">
+          <span>Proxy Region</span>
+          <Region region={proxyRegion} />
         </div>
+        <div className="info">
+          <span>Compute Region</span>
+          <Region region={computeRegion} />
+        </div>
+      </div>
       <Footer>
         {/* <p>
           Generated on {date} by{" "}
@@ -87,9 +87,10 @@ async function Wrapper({ city, timezone }: { city: string; timezone: string }) {
         content:
           "Act like as if you are a travel expert. Provide a list of 5 things to do in " +
           city +
-          " " +
+          " in the " +
+          // The timezone helps the AI decide the correct state / location
           timezone +
-          " and start with 'here's a...'. Do not mention the timezone in your response.",
+          " timezone and start with 'here's a...'. Do NOT mention the timezone in your response.",
       },
     ],
   });
