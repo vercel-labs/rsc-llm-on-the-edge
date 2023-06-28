@@ -138,7 +138,6 @@ main {
   justify-content: center;
   width: 100%;
   gap: 0px;
-  margin-top: 8px;
 }
 
 .info {
@@ -155,7 +154,7 @@ main {
   width: fit-content;
   align-items: center;
   gap: 8px;
-  font-size: clamp(14px, 2vw, 16px);
+  font-size: clamp(14px, 1.8vw, 16px);
   color: var(--accents-5);
 }
 
@@ -170,7 +169,7 @@ main {
 
 .info strong {
   line-height: 1.2;
-  font-size: clamp(18px, 3vw, 30px);
+  font-size: clamp(14px, 2vw, 20px);
 }
 
 pre.tokens {
@@ -189,7 +188,8 @@ h1.title {
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
-  margin: 1.5rem 0;
+  margin-top: 8px;
+  padding: 0;
 }
 
 h1.title > span {
@@ -207,7 +207,7 @@ footer {
   left: 0;
   width: 100%;
   text-align: center;
-  padding: 32px;
+  padding: 24px;
   box-sizing: border-box;
   font-size: 16px;
 }
@@ -293,14 +293,6 @@ nav {
 }
 
 @media (max-width: 960px) {
-  footer {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding: 24px 16px;
-    font-size: 13px;
-  }
-
   footer [data-break] {
     display: block;
   }
@@ -314,8 +306,17 @@ nav {
     margin-top: 4px;
   }
 
-  nav {
-    margin-top: 32px;
+  h1.title {
+    font-size: 1.5rem;
+  }
+
+  .info span {
+    font-size: 14px;
+  }
+
+  pre.tokens {
+    font-size: 1rem;
+    line-height: 1.5;
   }
 }
 

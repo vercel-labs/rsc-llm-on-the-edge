@@ -41,7 +41,7 @@ export function Footer({ children }: React.PropsWithChildren<{}>) {
       </a>
 
       <div className="details">
-        <p>
+        {/* <p>
           Built with{' '}
           <a target="_blank" href="https://nextjs.org" rel="noreferrer">
             Next.js
@@ -50,7 +50,7 @@ export function Footer({ children }: React.PropsWithChildren<{}>) {
           <a target="_blank" href="https://vercel.com" rel="noreferrer">
             Vercel
           </a>
-        </p>
+        </p> */}
         {children}
       </div>
 

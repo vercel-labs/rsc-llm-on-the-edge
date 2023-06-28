@@ -27,8 +27,57 @@ export default async function Page() {
     headersList.get("X-Vercel-Id")!
   );
 
-  const date = new Date().toISOString();
+  const date = new Date().toLocaleString("en-US", {
+    timeZone: timezone,
+    timeZoneName: "short",
+    second: "numeric",
+    minute: "numeric",
+    hour: "numeric",
+    month: "numeric",
+    day: "numeric",
+  });
 
+  return (
+    <>
+      <main>
+        <h1 className="title">
+          <span>What to do in </span>
+          {city}?
+        </h1>
+        <pre className="tokens">
+          <Suspense fallback={null}>
+            {/* @ts-ignore rsc */}
+            <Wrapper city={city} timezone={timezone} />
+          </Suspense>
+        </pre>
+      </main>
+      <div className="meta">
+          <div className="info">
+            <span>Proxy Region</span>
+            <Region region={proxyRegion} />
+          </div>
+          <div className="info">
+            <span>Compute Region</span>
+            <Region region={computeRegion} />
+          </div>
+        </div>
+      <Footer>
+        {/* <p>
+          Generated on {date} by{" "}
+          <a
+            href="https://vercel.com/docs/concepts/functions/edge-functions"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Vercel Edge Runtime
+          </a>
+        </p> */}
+      </Footer>
+    </>
+  );
+}
+
+async function Wrapper({ city, timezone }: { city: string; timezone: string }) {
   const response = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     stream: true,
@@ -48,54 +97,16 @@ export default async function Page() {
   // Convert the response into a friendly text-stream
   const stream = OpenAIStream(response);
 
-  return (
-    <>
-      <main>
-        <h1 className="title">
-          <span>What to do in </span>
-          {city}?
-        </h1>
-        <pre className="tokens">
-          {/* @ts-ignore rsc */}
-          <Tokens stream={stream} />
-        </pre>
-
-        <div className="meta">
-          <div className="info">
-            <span>Proxy Region</span>
-            <Region region={proxyRegion} />
-          </div>
-          <div className="info">
-            <span>Compute Region</span>
-            <Region region={computeRegion} />
-          </div>
-        </div>
-      </main>
-
-      <Footer>
-        <p>
-          Generated at {date} by{" "}
-          <a
-            href="https://vercel.com/docs/concepts/functions/edge-functions"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Vercel Edge Runtime
-          </a>
-        </p>
-      </Footer>
-    </>
-  );
+  /* @ts-ignore rsc */
+  return <Tokens stream={stream} />;
 }
 
 async function Tokens({ stream }: { stream: ReadableStream }) {
   const reader = stream.getReader();
 
   return (
-    <Suspense>
-      {/* @ts-ignore rsc */}
-      <RecursiveTokens reader={reader} />
-    </Suspense>
+    /* @ts-ignore rsc */
+    <RecursiveTokens reader={reader} />
   );
 }
 
