@@ -56,7 +56,7 @@ export function Footer({ children }: React.PropsWithChildren<{}>) {
 
       <a
         target="_blank"
-        href="https://github.com/vercel-labs/next-on-the-edge"
+        href="https://github.com/vercel-labs/rsc-llm-on-the-edge"
         className="source"
         rel="noreferrer"
       >
