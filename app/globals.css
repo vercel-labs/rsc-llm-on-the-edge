@@ -140,6 +140,7 @@ main {
   gap: 0px;
   max-width: 720px;
   margin: 0 auto;
+  margin-top: 6px;
 }
 
 .info {
