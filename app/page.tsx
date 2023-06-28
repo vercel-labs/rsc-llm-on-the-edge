@@ -4,6 +4,7 @@ import { Region } from "./components/region";
 import { parseVercelId } from "./parse-vercel-id";
 import { OpenAIStream } from "ai";
 import { Configuration, OpenAIApi } from "openai-edge";
+import { Suspense } from "react";
 
 export const runtime = "edge";
 
@@ -87,10 +88,7 @@ export default async function Page() {
   );
 }
 
-import { Suspense } from "react";
-import { MarkdownRenderer } from "./markdown-renderer";
-
-export async function Tokens({ stream }: { stream: ReadableStream }) {
+async function Tokens({ stream }: { stream: ReadableStream }) {
   const reader = stream.getReader();
 
   return (
