@@ -3,7 +3,6 @@ import { Footer } from "./components/footer";
 import { Region } from "./components/region";
 import { parseVercelId } from "./parse-vercel-id";
 import { OpenAIStream } from "ai";
-import { Tokens } from 'ai/react/server';
 import { Configuration, OpenAIApi } from "openai-edge";
 
 export const runtime = "edge";
@@ -56,6 +55,7 @@ export default async function Page() {
           {city}?
         </h1>
         <pre className="tokens">
+          {/* @ts-ignore rsc */}
           <Tokens stream={stream} />
         </pre>
 
@@ -83,6 +83,44 @@ export default async function Page() {
           </a>
         </p>
       </Footer>
+    </>
+  );
+}
+
+import { Suspense } from "react";
+import { MarkdownRenderer } from "./markdown-renderer";
+
+export async function Tokens({ stream }: { stream: ReadableStream }) {
+  const reader = stream.getReader();
+
+  return (
+    <Suspense>
+      {/* @ts-ignore rsc */}
+      <RecursiveTokens reader={reader} />
+    </Suspense>
+  );
+}
+
+async function RecursiveTokens({
+  reader,
+}: {
+  reader: ReadableStreamDefaultReader;
+}) {
+  const { done, value } = await reader.read();
+
+  if (done) {
+    return null;
+  }
+
+  const text = new TextDecoder().decode(value);
+
+  return (
+    <>
+      {text}
+      <Suspense fallback={null}>
+        {/* @ts-ignore rsc */}
+        <RecursiveTokens reader={reader} />
+      </Suspense>
     </>
   );
 }

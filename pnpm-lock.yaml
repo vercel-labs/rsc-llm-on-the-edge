@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   ai:
-    specifier: file:/Users/maxleiter/Documents/ai-sdk/packages/core/ai-2.1.9.tgz
-    version: file:../ai-sdk/packages/core/ai-2.1.9.tgz(react@18.2.0)(svelte@3.59.2)(vue@3.3.4)
+    specifier: ^2.1.9
+    version: 2.1.9(react@18.2.0)(svelte@3.59.2)(vue@3.3.4)
   next:
     specifier: 13.4.8-canary.6
     version: 13.4.8-canary.6(react-dom@18.2.0)(react@18.2.0)
@@ -382,7 +382,7 @@ packages:
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
       magic-string: 0.30.0
-      postcss: 8.4.24
+      postcss: 8.4.14
       source-map-js: 1.0.2
     dev: false
 
@@ -451,6 +451,31 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
+
+  /ai@2.1.9(react@18.2.0)(svelte@3.59.2)(vue@3.3.4):
+    resolution: {integrity: sha512-PiDWO/5lFvnbEziJjl+4CE44jg4weknJuW5VZAQQ4PDyFnDjxoCMkSJ95zEatX3qrYZfRP6zXHkmy+/OqwclfA==}
+    engines: {node: '>=14.6'}
+    peerDependencies:
+      react: ^18.2.0
+      svelte: ^3.29.0
+      vue: ^3.3.4
+    peerDependenciesMeta:
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      eventsource-parser: 1.0.0
+      nanoid: 3.3.6
+      react: 18.2.0
+      sswr: 1.10.0(svelte@3.59.2)
+      svelte: 3.59.2
+      swr: 2.1.5(react@18.2.0)
+      swrv: 1.0.3(vue@3.3.4)
+      vue: 3.3.4
+    dev: false
 
   /ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
@@ -1964,15 +1989,6 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
-  /postcss@8.4.24:
-    resolution: {integrity: sha512-M0RzbcI0sO/XJNucsGjvWU9ERWxb/ytp1w6dKtxTKgixdtQDq4rmx/g8W1hnaheq9jgwL/oyEdH5Bc4WwJKMqg==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.6
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
-    dev: false
-
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -2463,32 +2479,4 @@ packages:
 
   /zod@3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
-    dev: false
-
-  file:../ai-sdk/packages/core/ai-2.1.9.tgz(react@18.2.0)(svelte@3.59.2)(vue@3.3.4):
-    resolution: {integrity: sha512-R75iRizA6vs9/HY8g9WQB2hOqnvkYpMdrBpnsdj8Sok0jHopeFOmWH7S6o/xJLpxoIfcTAzeElbPPNFzSSIBew==, tarball: file:../ai-sdk/packages/core/ai-2.1.9.tgz}
-    id: file:../ai-sdk/packages/core/ai-2.1.9.tgz
-    name: ai
-    version: 2.1.9
-    engines: {node: '>=14.6'}
-    peerDependencies:
-      react: ^18.2.0
-      svelte: ^3.29.0
-      vue: ^3.3.4
-    peerDependenciesMeta:
-      react:
-        optional: true
-      svelte:
-        optional: true
-      vue:
-        optional: true
-    dependencies:
-      eventsource-parser: 1.0.0
-      nanoid: 3.3.6
-      react: 18.2.0
-      sswr: 1.10.0(svelte@3.59.2)
-      svelte: 3.59.2
-      swr: 2.1.5(react@18.2.0)
-      swrv: 1.0.3(vue@3.3.4)
-      vue: 3.3.4
     dev: false
