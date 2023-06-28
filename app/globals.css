@@ -138,6 +138,8 @@ main {
   justify-content: center;
   width: 100%;
   gap: 0px;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .info {
@@ -178,7 +180,7 @@ pre.tokens {
   font-family: inherit;
   white-space: pre-wrap;
   width: 100%;
-  height: 500px;
+  min-height: 500px;
   overflow-y: scroll;
   font-size: 1.15rem;
   line-height: 1.5;
@@ -315,7 +317,7 @@ nav {
   }
 
   pre.tokens {
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.5;
   }
 }
