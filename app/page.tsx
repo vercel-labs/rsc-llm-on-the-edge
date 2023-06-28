@@ -89,7 +89,7 @@ async function Wrapper({ city, timezone }: { city: string; timezone: string }) {
           city +
           " " +
           timezone +
-          " and start with 'here's a...'",
+          " and start with 'here's a...'. Do not mention the timezone in your response.",
       },
     ],
   });
