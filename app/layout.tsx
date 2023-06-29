@@ -13,9 +13,12 @@ export const metadata = {
     type: "website",
     title: "Vercel AI SDK on the Edge",
     description: "React Server Component streaming an LLM response on the Edge",
-    url: "https://rsc-llm-on-the-edge.vercel.app/"
+    url: "https://rsc-llm-on-the-edge.vercel.app/",
   },
-  themeColor: "#FFF"
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
 };
 
 export default function RootLayout({
