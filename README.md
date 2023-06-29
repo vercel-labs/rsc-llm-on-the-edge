@@ -36,11 +36,22 @@ const response = await openai.createChatCompletion({
 const stream = OpenAIStream(response);
 ```
 
-Recursively render the stream on the client using [React Suspense](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense)
+Then just pass the stream to the the `<Tokens />` component from the Vercel AI SDK: 
 
 ```js
-import { Suspense } from "react";
+import { Tokens } from "ai/react";
 
+// and then in the component
+
+return <Tokens stream={stream} />
+```
+
+### How does the Tokens component work?
+
+The `<Tokens />` component in the SDK uses [React Suspense](https://react.dev/reference/react/Suspense) and recursion stream the results to the client.
+Here's a simple implementation:
+
+```typescript
 export async function Tokens({ stream }: { stream: ReadableStream }) {
   const reader = stream.getReader();
 
@@ -74,5 +85,3 @@ async function RecursiveTokens({
   );
 }
 ```
-
-[Learn more](https://beta.nextjs.org/docs/rendering/edge-and-nodejs-runtimes).
