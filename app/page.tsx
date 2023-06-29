@@ -28,6 +28,10 @@ export default async function Page() {
     headersList.get("X-Vercel-Id")!
   );
 
+  if (headersList.get("user-agent")?.includes("Twitterbot")) {
+    return <></>;
+  }
+
   return (
     <>
       <main>
