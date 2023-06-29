@@ -7,6 +7,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/kv": "^0.2.2",
     "ai": "^2.1.12",
     "next": "13.4.8-canary.6",
     "openai-edge": "^1.1.0",
