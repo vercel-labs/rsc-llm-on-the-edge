@@ -9,7 +9,7 @@ const nextConfig = {
       {
         type: "header",
         key: "User-Agent",
-        value: "Twitterbot",
+        value: "(.*)Twitterbot(.*)",
       },
     ],
     destination: "/twitter",
