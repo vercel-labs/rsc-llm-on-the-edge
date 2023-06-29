@@ -9,7 +9,13 @@ export const metadata = {
     description: "React Server Component streaming an LLM response on the Edge",
     creator: "@nextjs",
   },
-  themeColor: "#FFF",
+  openGraph: {
+    type: "website",
+    title: "Vercel AI SDK on the Edge",
+    description: "React Server Component streaming an LLM response on the Edge",
+    url: "https://rsc-llm-on-the-edge.vercel.app/"
+  },
+  themeColor: "#FFF"
 };
 
 export default function RootLayout({
