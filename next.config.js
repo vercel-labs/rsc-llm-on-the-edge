@@ -3,16 +3,20 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  rewrites: {
-    source: "/:path*",
-    has: [
+  async rewrites() {
+    return [
       {
-        type: "header",
-        key: "User-Agent",
-        value: "(.*)Twitterbot(.*)",
+        source: "/",
+        has: [
+          {
+            type: "header",
+            key: "User-Agent",
+            value: "(.*)Twitterbot(.*)",
+          },
+        ],
+        destination: "/twitter",
       },
-    ],
-    destination: "/twitter",
+    ];
   },
 };
 
