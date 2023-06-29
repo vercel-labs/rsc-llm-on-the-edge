@@ -37,7 +37,6 @@ export default async function Page() {
         </h1>
         <pre className="tokens">
           <Suspense fallback={null}>
-            {/* @ts-ignore rsc */}
             <Wrapper city={city} timezone={timezone} />
           </Suspense>
         </pre>
@@ -79,6 +78,5 @@ async function Wrapper({ city, timezone }: { city: string; timezone: string }) {
   // Convert the response into a friendly text-stream
   const stream = OpenAIStream(response);
 
-  /* @ts-ignore rsc */
   return <Tokens stream={stream} />;
 }

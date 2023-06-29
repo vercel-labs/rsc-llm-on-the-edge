@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   ai:
-    specifier: ^2.1.11
-    version: 2.1.11(react@18.2.0)(svelte@3.59.2)(vue@3.3.4)
+    specifier: ^2.1.12
+    version: 2.1.12(react@18.2.0)(svelte@3.59.2)(vue@3.3.4)
   next:
     specifier: 13.4.8-canary.6
     version: 13.4.8-canary.6(react-dom@18.2.0)(react@18.2.0)
@@ -452,8 +452,8 @@ packages:
     hasBin: true
     dev: true
 
-  /ai@2.1.11(react@18.2.0)(svelte@3.59.2)(vue@3.3.4):
-    resolution: {integrity: sha512-gzCGSND9kiu5Q0CN3YSwF9TeQKBbdGZPd5cHC+psrZh0lqjvYXMzzYRe1s2UmUlLLIjah/xAix60CB97L+6R6Q==}
+  /ai@2.1.12(react@18.2.0)(svelte@3.59.2)(vue@3.3.4):
+    resolution: {integrity: sha512-byLD7SQtRTUqIxNPYLrk7ckZZ3KwOrwbBbdT92IESC9Fj5Vl9uFDWZJo4uC11Ja6l2EtDaCPtTnc2aOcfoOdtA==}
     engines: {node: '>=14.6'}
     peerDependencies:
       react: ^18.2.0
