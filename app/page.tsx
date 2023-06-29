@@ -5,6 +5,7 @@ import { parseVercelId } from "./parse-vercel-id";
 import { OpenAIStream } from "ai";
 import { Configuration, OpenAIApi } from "openai-edge";
 import { Suspense } from "react";
+import { Tokens } from "ai/react";
 
 export const runtime = "edge";
 
@@ -26,16 +27,6 @@ export default async function Page() {
   const { proxyRegion, computeRegion } = parseVercelId(
     headersList.get("X-Vercel-Id")!
   );
-
-  const date = new Date().toLocaleString("en-US", {
-    timeZone: timezone,
-    timeZoneName: "short",
-    second: "numeric",
-    minute: "numeric",
-    hour: "numeric",
-    month: "numeric",
-    day: "numeric",
-  });
 
   return (
     <>
@@ -61,22 +52,12 @@ export default async function Page() {
           <Region region={computeRegion} />
         </div>
       </div>
-      <Footer>
-        {/* <p>
-          Generated on {date} by{" "}
-          <a
-            href="https://vercel.com/docs/concepts/functions/edge-functions"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Vercel Edge Runtime
-          </a>
-        </p> */}
-      </Footer>
+      <Footer />
     </>
   );
 }
 
+// We add a wrapper component to avoid suspending the entire page while the OpenAI request is being made
 async function Wrapper({ city, timezone }: { city: string; timezone: string }) {
   const response = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
@@ -100,37 +81,4 @@ async function Wrapper({ city, timezone }: { city: string; timezone: string }) {
 
   /* @ts-ignore rsc */
   return <Tokens stream={stream} />;
-}
-
-async function Tokens({ stream }: { stream: ReadableStream }) {
-  const reader = stream.getReader();
-
-  return (
-    /* @ts-ignore rsc */
-    <RecursiveTokens reader={reader} />
-  );
-}
-
-async function RecursiveTokens({
-  reader,
-}: {
-  reader: ReadableStreamDefaultReader;
-}) {
-  const { done, value } = await reader.read();
-
-  if (done) {
-    return null;
-  }
-
-  const text = new TextDecoder().decode(value);
-
-  return (
-    <>
-      {text}
-      <Suspense fallback={null}>
-        {/* @ts-ignore rsc */}
-        <RecursiveTokens reader={reader} />
-      </Suspense>
-    </>
-  );
 }
